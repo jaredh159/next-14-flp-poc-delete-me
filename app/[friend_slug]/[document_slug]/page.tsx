@@ -30,4 +30,4 @@ export default async function Page(props: {
   );
 }
 
-// export default Page;
+export const dynamicParams = false;
