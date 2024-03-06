@@ -4,7 +4,7 @@ export async function getDocumentPage(
   friendSlug: string,
   documentSlug: string,
   lang: 'en' | 'es',
-): Promise<{ document: { title: string; description: string } }> {
+): Promise<{ title: string; description: string; timestamp: string }> {
   const token = process.env.API_TOKEN;
   invariant(token, `API_TOKEN is required`);
   const endpoint = process.env.API_ENDPOINT;
@@ -20,20 +20,19 @@ export async function getDocumentPage(
     });
     const json = await res.json();
     if (res.ok) {
-      return json;
+      return { ...json.document, timestamp: new Date().toISOString() };
     }
     throw new Error(JSON.stringify(json));
-  } catch (error) {
+  } catch (error: any) {
     console.error(error); // eslint-disable-line no-console
     process.exit(1);
   }
-  throw new Error(`Not implemented`);
 }
 
 export async function getFriend(
   slug: string,
   lang: 'en' | 'es',
-): Promise<{ name: string; description: string }> {
+): Promise<{ name: string; description: string; timestamp: string }> {
   const token = process.env.API_TOKEN;
   invariant(token, `API_TOKEN is required`);
   const endpoint = process.env.API_ENDPOINT;
@@ -49,12 +48,11 @@ export async function getFriend(
     });
     const json = await res.json();
     if (res.ok) {
-      return json;
+      return { ...json, timestamp: new Date().toISOString() };
     }
     throw new Error(JSON.stringify(json));
-  } catch (error) {
+  } catch (error: any) {
     console.error(error); // eslint-disable-line no-console
     process.exit(1);
   }
-  throw new Error(`Not implemented`);
 }

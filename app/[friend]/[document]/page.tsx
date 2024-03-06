@@ -23,9 +23,8 @@ export async function generateStaticParams(): Promise<Params[]> {
 async function getData(params: {
   friend: string;
   document: string;
-}): Promise<{ title: string; description: string }> {
-  const { document } = await api.getDocumentPage(params.friend, params.document, LANG);
-  return document;
+}): Promise<{ title: string; description: string; timestamp: string }> {
+  return await api.getDocumentPage(params.friend, params.document, LANG);
 }
 
 export default async function Page(props: {
@@ -34,11 +33,13 @@ export default async function Page(props: {
   const doc = await getData(props.params);
   return (
     <main>
-      <h1>{doc.title}</h1>
+      <h1>Document:</h1>
+      <h2>{doc.title}</h2>
       <p>{doc.description}</p>
+      <small>Fetched at: {doc.timestamp}</small>
     </main>
   );
 }
 
 export const dynamicParams = false;
-export const revalidate = 10;
+export const revalidate = 30;
