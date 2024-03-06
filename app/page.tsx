@@ -1,3 +1,4 @@
+import Link from 'next/link';
 const Home: React.FC = () => {
   return (
     <main>
@@ -5,40 +6,40 @@ const Home: React.FC = () => {
       <h2>Friends</h2>
       <ul>
         <li>
-          <a href="/friend/george-fox">George Fox</a>
+          <Link href="/friend/george-fox">George Fox</Link>
         </li>
         <li>
-          <a href="/friend/hugh-turford">Hugh Turford</a>
+          <Link href="/friend/hugh-turford">Hugh Turford</Link>
         </li>
       </ul>
       <h2>Documents</h2>
       <ul>
         <li>
-          <a href="/george-fox/journal">George Fox &mdash; Journal</a>
+          <Link href="/george-fox/journal">George Fox &mdash; Journal</Link>
         </li>
         <li>
-          <a href="/hugh-turford/walk-in-the-spirit">
+          <Link href="/hugh-turford/walk-in-the-spirit">
             Hugh Turford &mdash; Walk in the Spirit
-          </a>
+          </Link>
         </li>
       </ul>
       <h1>Spanish</h1>
       <h2>Friends</h2>
       <ul>
         <li>
-          <a href="/amigo/george-fox">George Fox</a>
+          <Link href="/amigo/george-fox">George Fox</Link>
         </li>
         <li>
-          <a href="/amiga/margaret-lucas">Margaret Lucas</a>
+          <Link href="/amiga/margaret-lucas">Margaret Lucas</Link>
         </li>
       </ul>
       <h2>Documents</h2>
       <ul>
         <li>
-          <a href="/george-fox/seleccion-del-diario">George Fox &mdash; Diario</a>
+          <Link href="/george-fox/seleccion-del-diario">George Fox &mdash; Diario</Link>
         </li>
         <li>
-          <a href="/margaret-lucas/vida">Margaret Lucas &mdash; Vida</a>
+          <Link href="/margaret-lucas/vida">Margaret Lucas &mdash; Vida</Link>
         </li>
       </ul>
     </main>

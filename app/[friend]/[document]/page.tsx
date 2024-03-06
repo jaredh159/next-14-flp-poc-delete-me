@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import * as api from '@/lib/api';
 import { LANG } from '@/lib/env';
 
@@ -37,6 +38,7 @@ export default async function Page(props: {
       <h2>{doc.title}</h2>
       <p>{doc.description}</p>
       <small>Fetched at: {doc.timestamp}</small>
+      <Link href="/">Home</Link>
     </main>
   );
 }
